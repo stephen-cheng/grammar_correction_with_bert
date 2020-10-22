@@ -346,7 +346,7 @@ def train_visual(df_stats):
 	# plt.show()
 
 
-def model_eval(filename, model):
+def model_eval(filename, tokenizer, model):
 	# Load the dataset into a pandas dataframe.
 	df = pd.read_csv(filename, delimiter='\t', header=None, names=['sentence_source', 'label', 'label_notes', 'sentence'])
 
@@ -362,6 +362,7 @@ def model_eval(filename, model):
 	attention_masks = []
 
 	# For every sentence...
+	tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
 	for sent in sentences:
 	    # `encode_plus` will:
 	    #   (1) Tokenize the sentence.
