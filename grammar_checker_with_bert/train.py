@@ -346,7 +346,7 @@ def train_visual(df_stats):
 	# plt.show()
 
 
-def model_eval(filename, tokenizer, model):
+def model_eval(filename, model):
 	# Load the dataset into a pandas dataframe.
 	df = pd.read_csv(filename, delimiter='\t', header=None, names=['sentence_source', 'label', 'label_notes', 'sentence'])
 
