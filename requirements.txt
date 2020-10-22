@@ -1,0 +1,10 @@
+numpy==1.16.0
+pandas
+matplotlib
+unidecode
+seaborn
+sklearn
+torch
+transformers
+tensorflow
+keras
