@@ -33,8 +33,8 @@ def test_with_saved_model(output_dir, sent):
 	attention_mask = attention_mask.to(device)
 
 	with torch.no_grad():
-	# Forward pass, calculate logit predictions
-	outputs = model_loaded(input_id, token_type_ids=None, attention_mask=attention_mask)
+		# Forward pass, calculate logit predictions
+		outputs = model_loaded(input_id, token_type_ids=None, attention_mask=attention_mask)
 
 	logits = outputs[0]
 	index = logits.argmax()
