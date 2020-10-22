@@ -45,7 +45,7 @@ def test_with_saved_model(output_dir, sent):
 
 
 if __name__ == '__main__':
-	output_dir = 'model/pytorch_model.bin'
+	output_dir = 'model/'
 	test_sent = "you doing good work"
 	test_with_saved_model(output_dir, test_sent)
 
