@@ -60,27 +60,27 @@ def spell_correction_model(model_path, data_path, corpus, test_sentence):
 	hidden_size = 512
 	sample_mode = 'argmax'
 	test_sentence = test_sentence.lower()
-    text = read_text(data_path, corpus)
-    vocab = tokenize(text)
-    vocab = list(filter(None, set(vocab)))
-    # `maxlen` is the length of the longest word in the vocabulary
-    # plus two SOS and EOS characters.
-    maxlen = max([len(token) for token in vocab]) + 2
-    train_encoder, train_decoder, train_target = transform(
-        vocab, maxlen, error_rate=error_rate, shuffle=False, train=False)
+	text = read_text(data_path, corpus)
+	vocab = tokenize(text)
+	vocab = list(filter(None, set(vocab)))
+	# `maxlen` is the length of the longest word in the vocabulary
+	# plus two SOS and EOS characters.
+	maxlen = max([len(token) for token in vocab]) + 2
+	train_encoder, train_decoder, train_target = transform(
+	    vocab, maxlen, error_rate=error_rate, shuffle=False, train=False)
 
-    tokens = tokenize(test_sentence)
-    tokens = list(filter(None, tokens))
-    nb_tokens = len(tokens)
-    misspelled_tokens, _, target_tokens = transform(
-        tokens, maxlen, error_rate=error_rate, shuffle=False, train=False)
+	tokens = tokenize(test_sentence)
+	tokens = list(filter(None, tokens))
+	nb_tokens = len(tokens)
+	misspelled_tokens, _, target_tokens = transform(
+	    tokens, maxlen, error_rate=error_rate, shuffle=False, train=False)
 
-    input_chars = set(' '.join(train_encoder))
-    target_chars = set(' '.join(train_decoder))
-    input_ctable = CharacterTable(input_chars)
-    target_ctable = CharacterTable(target_chars)
+	input_chars = set(' '.join(train_encoder))
+	target_chars = set(' '.join(train_decoder))
+	input_ctable = CharacterTable(input_chars)
+	target_ctable = CharacterTable(target_chars)
 
-    encoder_model, decoder_model = restore_model(model_path, hidden_size)
+	encoder_model, decoder_model = restore_model(model_path, hidden_size)
 
     input_tokens, target_tokens, decoded_tokens = decode_sequences(
         misspelled_tokens, target_tokens, input_ctable, target_ctable,
