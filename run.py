@@ -3,7 +3,7 @@ from transformers import BertTokenizer
 import torch
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import pandas as pd
 from spelling_correction_with_seq2seq_learning.utils import CharacterTable, transform
 from spelling_correction_with_seq2seq_learning.utils import restore_model, decode_sequences
