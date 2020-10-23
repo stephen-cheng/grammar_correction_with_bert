@@ -83,9 +83,9 @@ def spell_correction_model(model_path, data_path, corpus, test_sentence):
 	encoder_model, decoder_model = restore_model(model_path, hidden_size)
 
     input_tokens, target_tokens, decoded_tokens = decode_sequences(
-        misspelled_tokens, target_tokens, input_ctable, target_ctable,
-        maxlen, reverse, encoder_model, decoder_model, nb_tokens,
-        sample_mode=sample_mode, random=False)
+    	misspelled_tokens, target_tokens, input_ctable, target_ctable, 
+    	maxlen, reverse, encoder_model, decoder_model, nb_tokens,
+    	sample_mode=sample_mode, random=False)
 
     return input_tokens, decoded_tokens
 
@@ -105,8 +105,8 @@ if __name__ == '__main__':
 
 		input_tokens = decoded_tokens = test_sent
 	print('---------------------****---------------------')
-    print('Input sentence:  ', ' '.join([token for token in input_tokens]))
-    print('Corrected sentence:', ' '.join([token for token in decoded_tokens]))
+	print('Input sentence:  ', ' '.join([token for token in input_tokens]))
+	print('Corrected sentence:', ' '.join([token for token in decoded_tokens]))
 
 
 
