@@ -86,7 +86,7 @@ def spell_correction_model(model_path, data_path, corpus, test_sentence):
     	maxlen, reverse, encoder_model, decoder_model, nb_tokens,
     	sample_mode=sample_mode, random=False)
 
-    return input_tokens, decoded_tokens
+	return input_tokens, decoded_tokens
 
 
 if __name__ == '__main__':
