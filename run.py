@@ -81,8 +81,7 @@ def spell_correction_model(model_path, data_path, corpus, test_sentence):
 	target_ctable = CharacterTable(target_chars)
 
 	encoder_model, decoder_model = restore_model(model_path, hidden_size)
-
-    input_tokens, target_tokens, decoded_tokens = decode_sequences(
+	input_tokens, target_tokens, decoded_tokens = decode_sequences(
     	misspelled_tokens, target_tokens, input_ctable, target_ctable, 
     	maxlen, reverse, encoder_model, decoder_model, nb_tokens,
     	sample_mode=sample_mode, random=False)
