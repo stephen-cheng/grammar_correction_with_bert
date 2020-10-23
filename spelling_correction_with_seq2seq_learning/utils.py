@@ -6,7 +6,8 @@ import numpy as np
 from keras.models import Model, load_model
 from keras.layers import Input
 
-from model import truncated_acc, truncated_loss
+from spelling_correction_with_seq2seq_learning.model import truncated_acc, truncated_loss
+# from model import truncated_acc, truncated_loss
 
 np.random.seed(1234)
 
