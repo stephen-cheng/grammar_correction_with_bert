@@ -35,7 +35,8 @@ def grammar_checker_model(output_dir, sent):
 	input_id = torch.LongTensor(input_id)
 	attention_mask = torch.LongTensor(attention_mask)
 
-	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	device = torch.device("cpu")
 	model_loaded = model_loaded.to(device)
 	input_id = input_id.to(device)
 	attention_mask = attention_mask.to(device)
