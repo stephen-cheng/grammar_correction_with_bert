@@ -1,0 +1,7 @@
+LOCNESS Dataset Licence Agreement
+
+1. The corpus is to be used for non-commercial purposes only
+
+2. All publications on research partly or wholly based on the corpus should give credit to the Centre for English Corpus Linguistics (CECL), Université catholique de Louvain, Belgium. A scanned copy or offprint of the publication should also be sent to <sylviane.granger@uclouvain.be>. 
+
+3. No part of the corpus is to be distributed to a third party without specific authorization from CECL. The corpus can only be used by the person agreeing to the licence terms and researchers working in close collaboration with him/her or students under his/her supervision, attached to the same institution, within the framework of the research project.

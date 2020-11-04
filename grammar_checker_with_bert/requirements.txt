@@ -1,7 +1,0 @@
-numpy==1.16.0
-pandas
-matplotlib
-seaborn
-sklearn
-torch
-transformers
