@@ -69,8 +69,8 @@ python utils/preprocess_data.py -s SOURCE -t TARGET -o OUTPUT_FILE
 ## Train model
 To train the model, simply run:
 ```.bash
-python train.py --train_set TRAIN_SET --dev_set DEV_SET \
-                --model_dir MODEL_DIR --vocab_path VOCAB_PATH
+python train.py --train_set data/train/Alevels.train --dev_set data/train/ABCN.dev \
+                --model_dir model/ --vocab_path model/vocabulary
 ```
 There are a lot of parameters to specify among them:
 - `cold_steps_count` the number of epochs where we train only last linear layer
