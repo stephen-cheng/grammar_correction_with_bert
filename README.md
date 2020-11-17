@@ -11,15 +11,21 @@ The following command installs all necessary packages:
 ```.bash
 pip install -r requirements.txt
 ```
+
 The project was tested using Python 3.7.
 
 ## Datasets
 All the public GEC datasets used in the paper can be downloaded from [here](https://www.cl.cam.ac.uk/research/nl/bea2019st/#data).<br>
-Synthetically created datasets can be generated/downloaded [here](https://github.com/awasthiabhijeet/PIE/tree/master/errorify).<br>
+Synthetically created datasets can be generated/downloaded in [errorify](errorify/README.md)<br>
 To train the model data has to be preprocessed and converted to special format with the command:
 ```.bash
 python utils/preprocess_data.py -s SOURCE -t TARGET -o OUTPUT_FILE
 ```
+* Example:
+```.bash
+python utils/preprocess_data.py -s data/synthetic/train_incorr_sentences.txt -t data/synthetic/train_corr_sentences.txt -o data/synthetic/train_data.txt
+```
+
 ## Pretrained models
 <table>
   <tr>
@@ -69,9 +75,14 @@ python utils/preprocess_data.py -s SOURCE -t TARGET -o OUTPUT_FILE
 ## Train model
 To train the model, simply run:
 ```.bash
-python train.py --train_set data/train/Alevels.train --dev_set data/train/ABCN.dev \
-                --model_dir model/ --vocab_path model/vocabulary
+python train.py --train_set TRAIN_FILE --dev_set DEV_FILE \
+                --model_dir MODEL_DIR --vocab_path VOCAB_PATH
 ```
+* Example:
+```.bash
+python train.py --train_set data/synthetic/train_data.txt --dev_set data/synthetic/dev_data.txt --model_dir model/ --vocab_path model/vocabulary/
+```
+
 There are a lot of parameters to specify among them:
 - `cold_steps_count` the number of epochs where we train only last linear layer
 - `transformer_model {bert,distilbert,gpt2,roberta,transformerxl,xlnet,albert}` model encoder
@@ -87,9 +98,13 @@ We described all parameters that we use for training and evaluating [here](https
 ## Model inference
 To run your model on the input file use the following command:
 ```.bash
-python predict.py --model_file MODEL_file [MODEL_PATH ...] \
+python predict.py --model_path MODEL_FILE [MODEL_FILE ...] \
                   --vocab_path VOCAB_PATH --input_file INPUT_FILE \
                   --output_file OUTPUT_FILE
+```
+* Example:
+```.bash
+python predict.py --model_path model/model.th --vocab_path model/vocabulary/ --input_file data/synthetic/test_incorr_sentencese.txt --output_file data/synthetic/test_pred.txt
 ```
 Among parameters:
 - `min_error_probability` - minimum error probability (as in the paper)
